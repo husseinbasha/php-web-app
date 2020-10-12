@@ -169,3 +169,4 @@ function getCommentes($mysqli, $article_id)
         }
     }
 }
+$result = getCommentes($mysqli , 1);

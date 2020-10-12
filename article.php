@@ -132,6 +132,7 @@ require '/nav.php';
                 while($row = $res->fetch_assoc()){
                     echo $row['content'];
                 }
+                
 
             ?>      </div>
     </div>
