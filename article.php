@@ -92,16 +92,7 @@ require '/nav.php';
         // }
         // mysqli_close($conn);
     ?> 
-    <ul class="pagination card d-block  p-3 align-items-right">
-        <li class="btn btn-primary"><a class="text-light"href="?pageno=1">First</a></li>
-        <li class="btn btn-primary  <?php if($pageno <= 1){ echo 'disabled'; } ?>">
-            <a class="text-light" href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>">Prev</a>
-        </li>
-        <li class="btn btn-primary  <?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
-            <a class="text-light" href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next</a>
-        </li>
-        <li class="btn btn-primary"><a class="text-light" href="?pageno=<?php echo $total_pages; ?>">Last</a></li>
-    </ul>
+
 
     <!-- Comments Form -->
     <div class="card my-4">

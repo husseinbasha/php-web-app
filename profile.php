@@ -1,5 +1,10 @@
-<?php          
-session_start();
+<?php         
+try{
+    session_start();
+
+}catch(Exception $ex){
+
+}
 require 'header.php';
 require 'nav.php';
 
@@ -61,7 +66,7 @@ require 'nav.php';
                  </div>
 
             </div> 
-            <button for = "customFile" class="btn btn-md btn-primary" type="submit" name="submit" disabled>UPDATE</button>
+            <button for = "customFile" class="btn btn-md btn-primary" type="submit" name="submit" >UPDATE</button>
 
             </div>
 

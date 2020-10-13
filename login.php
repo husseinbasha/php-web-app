@@ -1,5 +1,7 @@
 <!-- NAVIGATION -->
 <?php
+
+
 require 'header.php';
 require 'nav.php';
 
@@ -8,8 +10,16 @@ require 'nav.php';
 	<div class="main-agileinfo">
 
 		<div class="agileits-top">
+			
 			<form action="includes/login.inc.php" method="post">
-				<input class="text" type="text" name="username" placeholder="Username or Email" required="">
+			<?php
+					if(isset($_GET['error'])){
+						echo '<div class="alert alert-danger mr-4" role="alert">
+							'.$_GET['error'].'
+					  	</div>';
+					}
+				?>
+				<input value="<?php if(isset($_GET['username'])){echo $_GET['username'];}?>" class="text" type="text" name="username" placeholder="Username or Email" required="">
 				<div style="margin: 1.3em 0;">
 					<input class="text" type="password" name="password" placeholder="Password" required="">
 				</div>

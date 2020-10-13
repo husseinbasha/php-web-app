@@ -90,6 +90,20 @@ function getArticlePage($mysqli, $id, $limit)
         return $res->num_rows > 0 ? $row = $res->fetch_assoc() : false;
     }
 }
+function getArticles($mysqli)
+{
+
+    $select = "select * from article ";
+
+    if ($mysqli->connect_error) {
+        die("Connection failed: " . $mysqli->connect_error);
+    } else {
+        $res = $mysqli->query($select);
+        if ($res->num_rows > 0) {
+            return $res;
+        }
+    }
+}
 //@DESC ADD Article
 //@COLUMNS  `date_published`, `author`, `title`, `content`, `id`, `uid` 
 //@DESC THE UID CAN BE BROUGHT THROUGH COOKIES 
