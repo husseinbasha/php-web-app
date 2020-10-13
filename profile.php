@@ -39,7 +39,7 @@ require 'nav.php';
                 $id = $_COOKIE['id'];
                 require 'includes/dbh.inc.php';
               
-                $select = "select * from users where uid =$id";
+                $select = "select * from users where uid = $id";
 
                 if($mysqli->connect_error){
                     die("Connection failed: " . $mysqli->connect_error);

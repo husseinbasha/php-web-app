@@ -125,4 +125,20 @@ require 'nav.php';
 
 
 </div>
+<ul class="colorlib-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+<script src="js/core.js"></script>
+
+<script src="js/animation.js"></script>
 </div>

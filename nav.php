@@ -45,7 +45,7 @@
 			</ul>
 			
 			
-			<form class="nav-form">
+			<!-- <form class="nav-form">
 				
 				<div class="input-group ">
 			
@@ -55,7 +55,7 @@
 				</button>
 				</div>
 				</div>
-			</form>
+			</form> -->
 			<?php
 					if(!isset($_SESSION['ID']))
 					{

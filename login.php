@@ -31,8 +31,10 @@ require 'nav.php';
 	</div>
 	<!-- copyright -->
 	<div class="colorlibcopy-agile">
-		<p>Hussein Basha contact me on <a href="https://github.com/husseinbasha">Git Hub</a></p>
-	</div>
+			<p> contact us on github <a href="https://github.com/husseinbasha"><br>Hussein Basha</a></p>
+			<p>  <a href="https://github.com/Firas-Al-Azizy">Firas Alazizy</a></p>
+			<p>  <a href="https://github.com/husseinbasha">Heba Fayad</a></p>
+		</div>
 	<!-- animations -->
 	<ul class="colorlib-bubbles">
 		<li></li>
