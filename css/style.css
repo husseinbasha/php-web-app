@@ -971,6 +971,11 @@ body {
 /*add articles section */
 .article-add {
   color: black;
+
+}
+
+.article-add form-group {
+
   background-color: #fff;
 }
 
