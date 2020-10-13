@@ -11,8 +11,8 @@ require 'nav.php';
       <form action="/events" method="POST" enctype="multipart/form-data">
         <h1 class="h3 mb-4 font-weight-normal article-forest-text text-center">Create a New Article</h1>
       <div class="form-group">
-          <label for="name">Article Topic:</label>
-          <input class="form-control" type="text" name="name" placeholder="articleTopic" required autofocus>
+          <label for="topic">Article Topic:</label>
+          <input class="form-control" type="text" name="topic" placeholder="article topic" required autofocus>
       </div>
       <!-- <div class="form-group">
           <label for="date">Date of publish:</label>
@@ -23,8 +23,8 @@ require 'nav.php';
           <input class="form-control" type="text" name="time" placeholder="time" required>
       </div> -->
       <div class="form-group">
-          <label for="description">Article:</label>
-          <textarea class="form-control" rows="5" type="text" name="article" placeholder="description"></textarea>
+          <label for="article">Article:</label>
+          <textarea class="form-control" rows="8" type="text" name="article" placeholder="article" required ></textarea>
       </div>
       <div class="form-group">
           <button class="btn btn-lg article-btn-light btn-block" name="submit">Submit</button>

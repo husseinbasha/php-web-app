@@ -970,7 +970,7 @@ body {
 
 /*add articles section */
 .article-add {
-  color: #5a5a5a;
+  color: black;
   background-color: #fff;
 }
 
@@ -979,7 +979,7 @@ body {
 }
 
 .article-btn-light {
-  background-color: #77c9d4;
+  background-color: #015249;
   color: #fff;
   border: none;
 }
