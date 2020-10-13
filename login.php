@@ -23,6 +23,15 @@ require 'nav.php';
 				<div style="margin: 1.3em 0;">
 					<input class="text" type="password" name="password" placeholder="Password" required="">
 				</div>
+				<div class="wthree-text ">
+						<label class="anim">
+							<input id='btn' type="checkbox" class="checkbox" required="">
+
+							<span></span>
+							remember me
+						</label>
+						<div class="clear"> </div>
+					</div>
 
 				<input type="submit" value="LOGIN" name="login" style="margin-top: 15px;">
 			</form>

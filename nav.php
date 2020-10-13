@@ -61,7 +61,7 @@
 					{
 						echo '<ul><li class="nav-item">
 					
-						<a class="nav-link btn-sm btn-success ml-2 rounded" href="includes/logout.inc.php"> Login or Signup </a>	
+						<a class="nav-link btn-sm btn-success ml-2 rounded" href="includes/signUp.inc.php">  Signup </a>	
 						
 						</li></ul>';
 					
