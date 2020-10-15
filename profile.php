@@ -7,7 +7,6 @@ try{
 }
 require 'header.php';
 require 'nav.php';
-
 ?>
 
 <style>

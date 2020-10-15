@@ -28,8 +28,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 
-    <!-- web font -->
-    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<script src="./js/script.js"></script>
     <script src="https://kit.fontawesome.com/0e10084a8f.js" crossorigin="anonymous"></script>
 </head>
 
