@@ -3,13 +3,13 @@
 if (isset($_POST['login'])) {
 
     require "dbh.inc.php";
-
+    
     //can be username or email both of them work
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
 
     if (empty($username) || empty($password)) {
-        header("Location: ../login.php?error=emptyfields");
+        header("Location: ../login.php?error=emptyfields&username=$username");
         exit();
     } else {
 
@@ -17,7 +17,7 @@ if (isset($_POST['login'])) {
         $stmt = mysqli_stmt_init($conn);
 
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("Location: ../login.php?error=sqlerror");
+            header("Location: ../login.php?error=sqlerror&username=$username");
             exit();
         } else {
 
@@ -30,23 +30,24 @@ if (isset($_POST['login'])) {
                 $passwordCheck = password_verify($password, $row['password']);
 
                 if ($passwordCheck == false) {
-                    header("Location: ../login.php?error=password-or-username-incorrect");
+                    header("Location: ../login.php?error=password-or-username-incorrect&username=$username");
                     exit();
                 } else if ($passwordCheck == true) {
                     session_start();
                     $_SESSION["ID"] = $row['uid'];
                     $_SESSION["USERNAME"] = $row['username'];
-                    setcookie("uname", $row['username'] , time()*8600 , "/" , "" , 0);
-                    setcookie("id", $row['uid'] , time()*8600 , "/" , "" , 0);
+                    setcookie("uname", $row['username'] , time()**80*80*80 , "/" , "" , 0);
+                    setcookie("id", $row['uid'] , time()*80*80*80, "/" , "" , 0);
                     
                     header("Location: ../index.php?login=success&username=".$_COOKIE['uname']);
                     exit();
                 } else {
-                    header("Location: ../login.php?error=password-or-username-incorrect");
+                    header("Location: ../login.php?error=password-or-username-incorrects&username=$username");
                     exit();
                 }
             } else {
                 header("Location: ../login.php?error=no-user");
+                exit();
             }
         }
     }

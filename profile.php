@@ -1,5 +1,10 @@
-<?php          
-session_start();
+<?php         
+try{
+    session_start();
+
+}catch(Exception $ex){
+
+}
 require 'header.php';
 require 'nav.php';
 ?>
@@ -33,7 +38,7 @@ require 'nav.php';
                 $id = $_COOKIE['id'];
                 require 'includes/dbh.inc.php';
               
-                $select = "select * from users where uid =$id";
+                $select = "select * from users where uid = $id";
 
                 if($mysqli->connect_error){
                     die("Connection failed: " . $mysqli->connect_error);
@@ -60,7 +65,7 @@ require 'nav.php';
                  </div>
 
             </div> 
-            <button for = "customFile" class="btn btn-md btn-primary" type="submit" name="submit" disabled>UPDATE</button>
+            <button for = "customFile" class="btn btn-md btn-primary" type="submit" name="submit" >UPDATE</button>
 
             </div>
 
