@@ -10,7 +10,10 @@ if (isset($_POST['signup'])) {
     $password2 = trim($_POST['password2']);
 
     if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
-        header("Location: ../signUp.php?error=not-valid-username-or-email");
+        header("Location: ../signUp.php?error=not-valid-username-or-email&username=$username&email=$email");
+        exit();
+    }else if($password < 8){
+        header("Location: ../signUp.php?password-is-short");
         exit();
     } else if ($password !== $password2) {
         header("Location: ../signUp.php?error=passwords-no-match&username=" . $username . "&email=" . $email);
@@ -28,7 +31,7 @@ if (isset($_POST['signup'])) {
             mysqli_stmt_store_result($stmt);
             $resultCheck =  mysqli_stmt_num_rows($stmt);
             if ($resultCheck > 0) {
-                header("Location: ../signUp.php?error=username-is-taken&email=" . $email);
+                header("Location: ../signUp.php?error=username-is-taken&username=$username&email=" . $email);
                 exit();
             } else {
                 $sql = "INSERT INTO users(name, username, email, password) VALUES (?,?,?,?)";
@@ -41,8 +44,7 @@ if (isset($_POST['signup'])) {
                     mysqli_stmt_bind_param($stmt, "ssss", $username, $username, $email, $passwordHash);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_store_result($stmt);
-                    header("Location: ../login.php?signup=success");
-                    getSignedupUser($mysqli ,$username , $email);
+                    header("Location: ../login?signup=success&username=$username");
                     exit();
                 }
             }
