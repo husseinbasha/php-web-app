@@ -109,7 +109,7 @@ if($res->num_rows > 0){
                                       </div>
                                       <div class="form-group">
                                         <label for="exampleInputBio" class="lbl" >Bio</label>
-                                        <textarea class="form-control bio" id="" placeholder="Your bio" name="bio" value="<?=$row['bio']?>" required></textarea>
+                                        <textarea class="form-control bio" id="" placeholder="Your bio" name="bio" required> <?=$row['bio']?> </textarea>
                                       </div>
                                       <div class="form-group">
                                         <label for="exampleInputPassword1" class="lbl">New Password</label>
