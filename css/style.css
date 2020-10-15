@@ -963,3 +963,29 @@ body {
   border: solid 2px rgba(200, 200, 200, 0.609) !important;
 
 }
+
+/*add articles section */
+.article-add {
+  color: black;
+}
+
+.article-add form-group {
+  background-color: #fff;
+}
+
+.article-forest-text {
+  color: #015249;
+}
+
+.article-btn-light {
+  background-color: #015249;
+  color: #fff;
+  border: none;
+}
+
+.article-form {
+  width: 100%;
+  max-width: 600px;
+  padding: 15px;
+  margin: 0 auto;
+}
