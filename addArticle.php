@@ -2,24 +2,9 @@
 require 'header.php';
 require 'nav.php';
 require ('includes/dbh.inc.php');
-if(isset($_SESSION['ID']))
 
-if(!empty($_POST)){
-    $title=$_POST['title'];
-    $image=$_POST['image'];
-    $content=$_POST['article'];
-    $uid=$_SESSION['USERNAME'];
-    $author=$_SESSION['ID'];
-    $current_timestamp = strtotime("now");
-    $timestamp= date("d-m-Y",$current_timestamp);
-if(empty($title)||empty($article)){
-    echo '<div class="alert alert-danger">All fileds are requierd!</div>';
-}else{
-    addArticle($mysqli, $uid, $timestamp, $author, $title, $content);
-    header('location:article.php?inserted');
-}
 
-}
+
 
 ?>
 

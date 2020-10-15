@@ -12,7 +12,9 @@ session_start();
 require 'header.php';
 require 'nav.php';
 require 'includes/dbh.inc.php';
-
+if(!isset($_SESSION['ID'])){
+    header('Location : landing.php');
+}
 //var_dump( $_SESSION['ID']);
 $id = $_SESSION['ID'];
 if (isset($_POST['update'])) {
@@ -23,7 +25,6 @@ if (isset($_POST['update'])) {
     $password = trim($_POST['password']);
     $password2 = trim($_POST['password2']);
    // $picture=$mysqli->real_escape_string($_POST['picture']);
-    updateProfileImage($mysqli , "picture" ,$id );
 
     if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
         header("Location: updateProfile.php?error=not-valid-username-or-email");
@@ -35,22 +36,25 @@ if (isset($_POST['update'])) {
         $passwordHash = password_hash($password, PASSWORD_BCRYPT);
         $sql = "UPDATE `users` SET `name`='$username',`username`='$username',`email`='$email',`bio`='$bio', `password`='$passwordHash' WHERE uid=$id";
         $mysqli->query($sql);
+        updateProfileImage($mysqli , "picture" ,$id );
+
         // 3) Result
 		if($mysqli->affected_rows > 0)
 		{
-			header("Location: wonerProfile.php?infoUpdated=success");
-            exit();
+                header("Location: updateProfile.php?infoUpdated=success");
+                exit();
 		}
-		else
+        else
+        {
 			echo 'Could not insert your data. Error was '.$mysqli->error;
-		// 5) Close
-		$mysqli->close();
-		unset($mysqli);
-
+            // 5) Close
+            $mysqli->close();
+            unset($mysqli);
+        }
             
     }
 }else{
-$select = "select * from users where uid =$id";
+$select = "select * from users where uid = $id";
 
 if($mysqli->connect_error){
     die("Connection failed: " . $mysqli->connect_error);
@@ -64,7 +68,7 @@ if($res->num_rows > 0){
     }else{
         $src="includes/images/".$row['pic'];
     }
-    
+
 ?>
 
 
@@ -139,12 +143,42 @@ if($res->num_rows > 0){
 </div>
 
 <?php
+}}}
 
-}
 
-}else{
-    echo ' No user';
-}
+
+function updateProfileImage($mysqli , $picture ,$id ){
+    
+    $filename = $_FILES[$picture]['name'];
+    $filetmp = $_FILES[$picture]['tmp_name'];
+    echo $filename;
+    echo realpath($filetmp);
+
+    $folder = "images/";
+    $ext = explode('.', $filename);
+    $aext = strtolower(end($ext));
+    $allowed = array('jpg' , 'jpeg' , 'png');
+   if(in_array($ext[1] , $allowed)){
+          
+    try{
+        move_uploaded_file($filetmp , $folder.$filename);
+
+    }catch(Exception $ex){
+        echo $ex;
+    }
+    $name= mysqli_real_escape_string($mysqli , $filename);
+    $query = "update users set pic = \"$name\" where uid = $id";
+        if($mysqli->connect_error){
+            die("Connection failed: " . $mysqli->connect_error);
+
+        }
+        if( $mysqli->query($query) === TRUE )
+        { 
+            return true;
+        }else{
+            echo $mysqli->error;
+        }
+   }  
 }
 ?>
 </body>

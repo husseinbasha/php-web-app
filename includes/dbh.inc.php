@@ -149,16 +149,22 @@ function getArticles($mysqli)
 //@DESC ADD Article
 //@COLUMNS  `date_published`, `author`, `title`, `content`, `id`, `uid` 
 //@DESC THE UID CAN BE BROUGHT THROUGH COOKIES 
-function addArticle($mysqli, $uid, $timestamp, $author, $title, $content)
+function addArticle($mysqli, $uid,  $author, $title, $content)
 {
 
-    $select = "INSERT INTO `article`(`date_published`, `author`, `title`, `content`,  `uid`) VALUES ($timestamp , $author , $title , $content , $uid )";
-
+    $select = "INSERT INTO `article`( `author`, `title`, `content`,  `uid`) VALUES ( '$author', '$title' , '$content' , $uid)";
     if ($mysqli->connect_error) {
-        die("Connection failed: " . $mysqli->connect_error);
-    } else {
-        return  $mysqli->query($select) === TRUE ? true : false;
+        echo("Connection failed: " . $mysqli->connect_error);
     }
+         if( $mysqli->query($select) === TRUE){
+            echo "success";
+         }else{
+            echo "<br>".$mysqli->error;
+         }
+        
+       
+          
+    
 }
 //@DESC GETS THE ARTICLE FROM THE DATABASE
 //@COLUMNS  id , uid , author , content , title , timestamp
@@ -171,8 +177,7 @@ function getArticle($mysqli, $id)
 
         die("Connection failed: " . $mysqli->connect_error);
     } else {
-        $res = $mysqli->query($select);
-
+        
         $res = $mysqli->query($select);
         if ($res->num_rows > 0) {
             return $res;
@@ -227,35 +232,11 @@ function getCommentes($mysqli, $article_id)
         }
     }
 }
-$result = getCommentes($mysqli , 1);
-function updateProfileImage($mysqli , $picture ,$id ){
 
-    $filename = $_FILES["$picture"]['name'];
-    $filetmp = $_FILES["$picture"]['tmp_name'];
-    $folder = "images/";
-    $ext = explode('.', $filename);
-    $aext = strtolower(end($ext));
-    $allowed = array('jpg' , 'jpeg' , 'png');
-   if(in_array($ext[1] , $allowed)){
-          
-    try{
-        move_uploaded_file($filetmp , $folder.$filename);
-
-    }catch(Exception $ex){
-        echo $ex;
-    }
-    $name= mysqli_real_escape_string($mysqli , $filename);
-    $query = "update users set pic = \"$name\" where uid = $id";
-    if($mysqli->connect_error){
-        die("Connection failed: " . $mysqli->connect_error);
-
-     }
-     $mysqli->query($query);
-   }
    
        
  
 
 
 
-}
+

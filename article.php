@@ -1,7 +1,11 @@
 <?php
-
-require 'header.php';
-require 'nav.php';
+session_start();
+require '/header.php';
+require '/nav.php';
+require 'includes/dbh.inc.php';
+$result = getArticle($mysqli , $_GET['id']);
+while($row = $result->fetch_assoc()){
+  
 
 ?>
 <style>
@@ -21,18 +25,18 @@ require 'nav.php';
   <div class="col-lg-8">
 
     <!-- Title -->
-    <h1 class="mt-4 " style="font-family:Roboto; text-align:left; font-weight:700; color:black; letter-spacing:normal">Post Title</h1>
+    <h1 class="mt-4 " style="font-family:Roboto; text-align:left; font-weight:700; color:black; letter-spacing:normal"><?=$row['title']?></h1>
 
     <!-- Author -->
     <p class="lead">
       by
-      <a href="#">Start Bootstrap</a>
+      <a href="userProfile?<?=$row['uid']?>"><?=$row['author']?></a>
     </p>
 
     <hr>
 
     <!-- Date/Time -->
-    <p>Posted on January 1, 2019 at 12:00 PM</p>
+    <p><?=$row['date_published']?></p>
 
     <hr>
 
@@ -42,11 +46,7 @@ require 'nav.php';
     <hr>
 
     <!-- Post Content -->
-    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
+    <p class="lead"><?=$row['content']?>
 
     <blockquote class="blockquote">
       <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
@@ -60,48 +60,8 @@ require 'nav.php';
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
 
     <hr>
-    <?php
-        //TO-DO ADD THE PAGINATION FEATURE 
-        //TUTORIAL https://www.myprogrammingtutorials.com/create-pagination-with-php-and-mysql.html
-        $total_pages=0;
-        $pageno=0;
-        // if (isset($_GET['pageno'])) {
-        //     $pageno = $_GET['pageno'];
-        // } else {
-        //     $pageno = 1;
-        // }
-        // $no_of_records_per_page = 10;
-        // $offset = ($pageno-1) * $no_of_records_per_page;
+    
 
-        // $conn=mysqli_connect("localhost","hussein","hussein","babab");
-        // // Check connection
-        // if (mysqli_connect_errno()){
-        //     echo "Failed to connect to MySQL: " . mysqli_connect_error();
-        //     die();
-        // }
-
-        // $total_pages_sql = "SELECT COUNT(*) FROM table";
-        // $result = mysqli_query($conn,$total_pages_sql);
-        // $total_rows = mysqli_fetch_array($result)[0];
-        // $total_pages = ceil($total_rows / $no_of_records_per_page);
-
-        // $sql = "SELECT * FROM table LIMIT $offset, $no_of_records_per_page";
-        // $res_data = mysqli_query($conn,$sql);
-        // while($row = mysqli_fetch_array($res_data)){
-        //     //here goes the data
-        // }
-        // mysqli_close($conn);
-    ?> 
-    <ul class="pagination card d-block  p-3 align-items-right">
-        <li class="btn btn-primary"><a class="text-light"href="?pageno=1">First</a></li>
-        <li class="btn btn-primary  <?php if($pageno <= 1){ echo 'disabled'; } ?>">
-            <a class="text-light" href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>">Prev</a>
-        </li>
-        <li class="btn btn-primary  <?php if($pageno >= $total_pages){ echo 'disabled'; } ?>">
-            <a class="text-light" href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">Next</a>
-        </li>
-        <li class="btn btn-primary"><a class="text-light" href="?pageno=<?php echo $total_pages; ?>">Last</a></li>
-    </ul>
 
     <!-- Comments Form -->
     <div class="card my-4">
@@ -172,7 +132,7 @@ require 'nav.php';
   -->
   <div class="col-md-4">
     <div class="card">
-      <a href="updateProfile.php?profile=">update profile</a>
+      <a href="profile.php?profile=">profile</a>
     </div>
     <!-- Search Widget -->
     <div class="card my-4">
@@ -245,7 +205,9 @@ require 'nav.php';
 </div>
 <!-- /.container -->
 </footer>
-
+<?php
+}
+?>
 
 
 

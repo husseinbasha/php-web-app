@@ -11,7 +11,8 @@ while($row=$res->fetch_assoc()){
     }else{
         $src="includes/images/".$row['pic'];
     }
-
+  
+    
 ?>
 
 
@@ -26,7 +27,7 @@ while($row=$res->fetch_assoc()){
     <div class="card-header">
       <div class="img">
         <div class="inner-img">
-          <img src=<?=$src?> alt="" class="img-profile">
+          <img src="<?php echo $src?>" alt="" class="img-profile">
         </div>
       </div>
       <div class="desc">
@@ -41,6 +42,35 @@ while($row=$res->fetch_assoc()){
       </div>
     </div>
 </div>
-  <?php
-    }
-    ?>  
+<?php
+}
+function updateProfileImage($mysqli , $picture ,$id ){
+    
+  $filename = $_FILES[$picture]['name'];
+  $filetmp = $_FILES[$picture]['tmp_name'];
+  echo $filename;
+  echo realpath($filetmp);
+
+  $folder = "images/";
+  $ext = explode('.', $filename);
+  $aext = strtolower(end($ext));
+  $allowed = array('jpg' , 'jpeg' , 'png');
+ if(in_array($ext[1] , $allowed)){
+        
+  try{
+      move_uploaded_file($filetmp , $folder.$filename);
+
+  }catch(Exception $ex){
+      echo $ex;
+  }
+  $name= mysqli_real_escape_string($mysqli , $filename);
+  $query = "update users set pic = \"$name\" where uid = $id";
+      if($mysqli->connect_error){
+          die("Connection failed: " . $mysqli->connect_error);
+
+      }
+   $mysqli->query($query);
+ }
+}
+?>
+    

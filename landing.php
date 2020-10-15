@@ -78,8 +78,10 @@ h1
               
             </p>
             <div class="buttons">
-              <a href="signUp.php" class="btn btn-primary">Signup</a>
-              <a href="login.php" class="btn btn-light">Login</a>
+              <?php if(!$_SESSION['ID']){
+                echo '<a href="signUp.php" class="btn btn-primary">Signup</a>
+                     <a href="login.php" class="btn btn-light">Login</a>';
+              }?>
             </div>
             
           </div>

@@ -72,7 +72,7 @@ function time_elapsed_string($datetime, $full = false) {
     return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
 ?> 
-<nav aria-label="Page navigation example">
+<nav aria-label="Page navigation example ">
     <ul class="pagination justify-content-center">
         <li class="page-item <?php echo $disabled1 ?>">
             <a class="page-link" href="<?php if ($pagenumber <= 1) {
