@@ -70,7 +70,9 @@ function getUserWithID($mysqli, $id)
         die("Connection failed: " . $mysqli->connect_error);
     }
     $res = $mysqli->query($select);
-    return $res->num_rows > 0 ? $row = $res->fetch_assoc() : "mysql error or user dosent exist";
+    if ($res->num_rows > 0) {
+        return $res;
+    }
     //if it returns false it means there were an error
     //ECHO THIS TO SHOW ERROR $res->error
 }
@@ -170,3 +172,34 @@ function getCommentes($mysqli, $article_id)
     }
 }
 $result = getCommentes($mysqli , 1);
+function updateProfileImage($mysqli , $picture ,$id ){
+
+    $filename = $_FILES["$picture"]['name'];
+    $filetmp = $_FILES["$picture"]['tmp_name'];
+    $folder = "images/";
+    $ext = explode('.', $filename);
+    $aext = strtolower(end($ext));
+    $allowed = array('jpg' , 'jpeg' , 'png');
+   if(in_array($ext[1] , $allowed)){
+          
+    try{
+        move_uploaded_file($filetmp , $folder.$filename);
+
+    }catch(Exception $ex){
+        echo $ex;
+    }
+    $name= mysqli_real_escape_string($mysqli , $filename);
+    $query = "update users set pic = \"$name\" where uid = $id";
+    if($mysqli->connect_error){
+        die("Connection failed: " . $mysqli->connect_error);
+
+     }
+     $mysqli->query($query);
+   }
+   
+       
+ 
+
+
+
+}
