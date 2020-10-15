@@ -36,8 +36,8 @@ if (isset($_POST['login'])) {
                     session_start();
                     $_SESSION["ID"] = $row['uid'];
                     $_SESSION["USERNAME"] = $row['username'];
-                    setcookie("uname", $row['username'] , time()*8600 , "/" , "" , 0);
-                    setcookie("id", $row['uid'] , time()*8600 , "/" , "" , 0);
+                    setcookie("uname", $row['username'] , time()**80*80*80 , "/" , "" , 0);
+                    setcookie("id", $row['uid'] , time()*80*80*80, "/" , "" , 0);
                     
                     header("Location: ../index.php?login=success&username=".$_COOKIE['uname']);
                     exit();

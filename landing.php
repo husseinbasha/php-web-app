@@ -8,7 +8,7 @@ require 'nav.php';
 <style>
 .landing {
   position: relative;
-  background: url('showcase.jpg') no-repeat center center/cover;
+
   height: 100vh;
 }   
 .landing-inner {
@@ -81,7 +81,10 @@ h1
               <a href="signUp.php" class="btn btn-primary">Signup</a>
               <a href="login.php" class="btn btn-light">Login</a>
             </div>
+            
           </div>
+          
         </div>
+ 
  </section>
 

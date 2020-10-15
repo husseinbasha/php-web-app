@@ -28,6 +28,9 @@ $mysqli = new mysqli($server, $username, $password, $dbname);
 
 
 
+
+/**USERS */
+
 //@DESC GETS THE USER ROW FROM THE DATABASE
 //@COLUMNS  uid , username , email , password ,pic
 function getCurrentUser($mysqli)
@@ -48,7 +51,7 @@ function getCurrentUser($mysqli)
 function getSignedupUser($mysqli, $username, $email)
 {
 
-    $select = "select * from users where username = '$username' && '$email'";
+    $select = "select * from users where username = '$username' && email ='$email'";
 
     if ($mysqli->connect_error) {
         die("Connection failed: " . $mysqli->connect_error);
@@ -74,22 +77,50 @@ function getUserWithID($mysqli, $id)
     //if it returns false it means there were an error
     //ECHO THIS TO SHOW ERROR $res->error
 }
+
+
+//**ARTICLES */
+
+
+//@DESC GET articles count
+//@COLUMNS  id , uid , author , content , title
+
+function getArticlesCount($mysqli){
+    $select = "SELECT COUNT(*) FROM article";
+
+    if ($mysqli->connect_error) {
+        die("Connection failed: " . $mysqli->connect_error);
+    }
+
+    $res = $mysqli->query($select);
+    if ($res->num_rows > 0) {
+        return $res;
+    }
+}
+
+
+
+
+
 //@DESC GETS ARTICLES WITH LIMIT
 //@COLUMNS  id , uid , author , content , title
 //@USEFUL LINK FOR PAGINATION https://www.myprogrammingtutorials.com/create-pagination-with-php-and-mysql.html
-function getArticlePage($mysqli, $id, $limit)
+function getArticlePage($mysqli, $off , $per_page)
 {
 
-    $select = "select * from article where id = $id  limit $limit";
+    $select = "SELECT * FROM article LIMIT $off , $per_page";
 
     if ($mysqli->connect_error) {
         die("Connection failed: " . $mysqli->connect_error);
     } else {
         $res = $mysqli->query($select);
-
-        return $res->num_rows > 0 ? $row = $res->fetch_assoc() : false;
+        if ($res->num_rows > 0) {
+            return $res;
+        }
     }
 }
+//@DESC GETS ARTICLES WITH 
+//@COLUMNS  id , uid , author , content , title
 function getArticles($mysqli)
 {
 
@@ -151,6 +182,8 @@ function deleteUser($mysqli, $uid)
         return  $mysqli->query($select) === TRUE ? true : false;
     }
 }
+
+
 
 //@DESC ADD COMMMENT
 //@COLUMNS  comment_id , article_id , uid , timestamp [can-be-null]

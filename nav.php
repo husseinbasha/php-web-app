@@ -2,8 +2,7 @@
 <nav class="navbar navbar-expand-md navbar-dark" style="background-color: #121212;">
 		<a class="navbar-brand">
 
-		<i class="fas fa-brain   mr-1 "></i>
-		FEEDIT
+		<i class="fas fa-brain"></i>			FEEDIT
 		</a>
 		
 		<button class="navbar-toggler d-lg-none " type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
@@ -40,6 +39,7 @@
 						
 					</li>';
 					}
+
 				?>
 
 			</ul>
@@ -70,7 +70,7 @@
 					}else{
 						echo '<ul><li class="nav-item">
 					
-						<a class="nav-link btn-sm btn-danger ml-2 rounded" href="includes/logout.inc.php"> Logout </a>	
+						<a class="nav-link btn-sm btn-dark ml-2 rounded" href="includes/logout.inc.php"> Logout </a>	
 						
 						</li></ul>';
 					}

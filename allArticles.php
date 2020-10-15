@@ -1,144 +1,152 @@
- <?php
- if(!isset($_SESSION['id'])){
-   session_start();
- }
+<?php
+if (!isset($_SESSION['id'])) {
+  session_start();
+}
 require 'header.php';
 require 'nav.php';
 ?>
 <style>
-    h1{
-        color:#fff; 
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        text-align: start;
-    }
-    .border-l{
-      font-size: 1em;
-      border-left: 5px solid #8EE5EE;
-      padding-left: 15px;
-    }
-    .border-d{
-      border-bottom-left-radius:5px;
-      border-bottom-right-radius:5px;
-    }
+  h1 {
+    color: #fff;
+    text-align: start;
+    margin-left: 8px;
+    font-family: 'Lobster' , 'sans-serif';
+
+  }
+  .title{
+    font-family: 'Raleway' , 'sans-serif';
+
+
+  }
+
+  .border-l {
+    font-size: 1.1em;
+    border-left: 5px solid #8EE5EE;
+    padding-left: 15px;   
+     font-family: 'Montserrat' , 'sans-serif';
+
+  }
+  .of{
+    position: relative;
+    overflow: hidden;
+  }
+  .border-d {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
 </style>
 
-
+<div class="of">
 <div class="container-fluid">
-<div class="row p-4">
-<div class="col-lg-9 ">
-    <div class= "container-fluid rounded p-4" style="background: #141414;"> 
-       <h1>This week articles</h1> 
-    </div>
-<div class="list-group">
-    <?php
-        require 'includes/dbh.inc.php';
+  <div class="row p-4">
+    <div class="col-lg-9 ">
+      <div class="container-fluid p-4 rounded mb-2" style="background: #121212;">
+      <div class="row justify-content-between">
+        <div class="col-m-6">
+        <h1>Top posts</h1>
 
-        $res = getArticles($mysqli);
-        while($row = $res->fetch_assoc()){
-          $time = strtotime($row['date_published']);
-            echo '<a href="#" class=" mt-3 list-group-item list-group-item-action border-top rounded-top border-bottom-0 flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-              <!-- title -->
-              <h3 class="mb-1 h3">'.$row['title'].' | ' .$row['author'].'</h3>
-          <!--date_published-->    <small> '.date('d/m/y',$time).'</small>
+        </div>
+        <div class="col-m-6 ">
+            <form class="form mt-1">
+            
+            <div class="input-group ">
+          
+            <input class="form-control bg-light " type="text" placeholder="Search">
+            <div class="input-group-btn bg-dark">
+            <button class="btn btn-dark  " type="submit"><i class="fa fa-search" aria-hidden="true"></i></i>
+            </button>
             </div>
-            <p class="mb-1 border-l"><span style="">'.substr($row['content'], 0 , 300).'</span></p>
-          </a>    <small class="text-muted border-d bg-white"><a class="nav-link bg-white border-d border border-white ml-2" href="article.php?id='.$row['id'].'">read more...</a></small>
-          ';
-        }
-        
+            </div>
+            </form>
+        </div>
+        </div>
+        <div class="row mt-3 text-white">
+          <div class="col-sm-">
 
-    ?>  
-  
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
+        <div class="dropdown open">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+                Dropdown
+              </button>
+          <div class="dropdown-menu" aria-labelledby="triggerId">
+            <form action="includes/articles.inc.php" method="get">
+            <button class="dropdown-item" type='submit' href="?sort=oldest">oldest</button>
+            <button class="dropdown-item" href="#">Disabled action</button>
+            </form>
+          </div>
+        </div>
+          </div>
+          
+        </div>
+      
+       
+      </div>
+      <?php include_once 'includes/articles.inc.php' ?>
     </div>
-    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    <small class="text-muted">Donec id elit non mi porta.</small>
-  </a>
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1">List group item heading</h5>
-      <small class="text-muted">3 days ago</small>
-    </div>
-    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-  </a>
-  <div class="continer-fluid bg-light ">
-  <nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
-</div>
-</div>
-</div>
-<div class="col">
-    <div class="card">
+  <div class="col">
+   <div class="card title">
         <div class="card-header">
-          <h2>TOPICS</h2>
+          <h2>Sort by <i class="ml-3 fa fa-sort text-dark" aria-hidden="true"></i></h2>
         </div>
         <div class="card-body">
-            adcontent    
+          <form action="">
+            <button class="btn">
+                    Notification <span class="badge badge-primary">Date</span>
+            </button>
+          </form>
         </div>
-    </div>
-    <div class="card my-4">
-      <h5 class="card-header">Categories</h5>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-6">
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#">Web Design</a>
-              </li>
-              <li>
-                <a href="#">HTML</a>
-              </li>
-              <li>
-                <a href="#">Freebies</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-lg-6">
-            <ul class="list-unstyled mb-0">
-              <li>
-                <a href="#">JavaScript</a>
-              </li>
-              <li>
-                <a href="#">CSS</a>
-              </li>
-              <li>
-                <a href="#">Tutorials</a>
-              </li>
-            </ul>
+      </div>
+      <div class="card my-4 title">
+        <h5 class="card-header">Categories</h5>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#">Web Design</a>
+                </li>
+                <li>
+                  <a href="#">HTML</a>
+                </li>
+                <li>
+                  <a href="#">Freebies</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="#">JavaScript</a>
+                </li>
+                <li>
+                  <a href="#">CSS</a>
+                </li>
+                <li>
+                  <a href="#">Tutorials</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
-</div>
-
-
-
+  </div>
 </div>
 <ul class="colorlib-bubbles">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
 </div>
 <script src="js/core.js"></script>
 
 <script src="js/animation.js"></script>
-</div>
+</body>
+</html>
