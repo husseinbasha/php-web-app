@@ -2,7 +2,6 @@
 session_start();
 require 'header.php';
 require 'nav.php';
-
 ?>
 
 <style>

@@ -1,8 +1,15 @@
 <?php
 
-require '/header.php';
-require '/nav.php';
+require 'header.php';
+require 'nav.php';
 
+if(isset($_GET['id'])){
+
+  $id = $_GET['id'];
+
+}
+getArticle($id);
+ 
 ?>
 <style>
     body{
@@ -21,7 +28,7 @@ require '/nav.php';
   <div class="col-lg-8">
 
     <!-- Title -->
-    <h1 class="mt-4 " style="font-family:Roboto; text-align:left; font-weight:700; color:black; letter-spacing:normal">Post Title</h1>
+    <h1 class="mt-4 " style="font-family:Roboto; text-align:left; font-weight:700; color:black; letter-spacing:normal">$row['title']</h1>
 
     <!-- Author -->
     <p class="lead">

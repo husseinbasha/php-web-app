@@ -1,7 +1,8 @@
 <?php
+//connect to local server
 $server = "localhost";
-$username = "hussein";
-$password = "hussein";
+$username = "root";
+$password = "";
 $dbname = "babab";
 
 $conn = mysqli_connect($server, $username, $password, $dbname);
@@ -11,6 +12,14 @@ if (!$conn) {
 }
 $mysqli = new mysqli($server, $username, $password, $dbname);
 
+//connect to google cloud sql
+// Instantiate your DB using the database name, socket, username, and password
+// $server="34.107.57.245";
+// $dbName = 'babab';
+// $dbUser = 'root';
+// $dbPass = '';
+// $dbSocket = '/cloudsql/lunar-geography-292307:europe-west3:phpwebapp';
+// $mysqli = new mysqli($server, $dbUser, $dbPass, $dbName, null, $dbSocket);
 
 
 /***************** *

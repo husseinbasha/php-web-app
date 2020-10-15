@@ -1,18 +1,49 @@
 <?php 
 require 'header.php';
 require 'nav.php';
+require ('includes/dbh.inc.php');
+if(isset($_SESSION['ID']))
+
+if(!empty($_POST)){
+    $title=$_POST['title'];
+    $image=$_POST['image'];
+    $content=$_POST['article'];
+    $uid=$_SESSION['USERNAME'];
+    $author=$_SESSION['ID'];
+    $current_timestamp = strtotime("now");
+    $timestamp= date("d-m-Y",$current_timestamp);
+if(empty($title)||empty($article)){
+    echo '<div class="alert alert-danger">All fileds are requierd!</div>';
+}else{
+    addArticle($mysqli, $uid, $timestamp, $author, $title, $content);
+    header('location:article.php?inserted');
+}
+
+}
+
 ?>
+
 
 <div class="article-add container"><!--Container-->
   
   <div class="article-form">
       <br>
       <h1 class="mb-3 article-forest-text text-center"><i class="fas fa-newspaper"></i></h1> 
-      <form action="/article.php" method="POST" enctype="multipart/form-data">
+      <form action="" method="POST" enctype="multipart/form-data">
         <h1 class="h3 mb-4 font-weight-normal article-forest-text text-center">Create a New Article</h1>
       <div class="form-group">
-          <label for="topic">Article Topic:</label>
-          <input class="form-control" type="text" name="topic" placeholder="article topic" required autofocus>
+          <label for="topic">Article Title:</label>
+          <input class="form-control" type="text" name="title" placeholder="article topic" required autofocus>
+      </div>
+      <label for="image">Image:</label>
+      <div class="input-group">
+          <div class="input-group-prepend mb-3">
+              <span class="input-group-text">Upload</span>
+          </div>
+          <div class="custom-file">
+              <input type="file" id="article-image" name="image" accept="image/*">
+              <label class="custom-file-label" for="image">Choose image</label>
+          </div>
       </div>
       <!-- <div class="form-group">
           <label for="date">Date of publish:</label>
