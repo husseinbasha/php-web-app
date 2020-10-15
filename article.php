@@ -1,7 +1,7 @@
 <?php
 
-require '/header.php';
-require '/nav.php';
+require 'header.php';
+require 'nav.php';
 
 ?>
 <style>
@@ -172,7 +172,7 @@ require '/nav.php';
   -->
   <div class="col-md-4">
     <div class="card">
-      <a href="profile.php?profile=">profile</a>
+      <a href="updateProfile.php?profile=">update profile</a>
     </div>
     <!-- Search Widget -->
     <div class="card my-4">
