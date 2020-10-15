@@ -41,7 +41,7 @@ if (isset($_POST['signup'])) {
                     mysqli_stmt_bind_param($stmt, "ssss", $username, $username, $email, $passwordHash);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_store_result($stmt);
-                    header("Location: ../index?signup=success");
+                    header("Location: ../login.php?signup=success");
                     getSignedupUser($mysqli ,$username , $email);
                     exit();
                 }
