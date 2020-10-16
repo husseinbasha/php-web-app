@@ -148,5 +148,7 @@ require 'nav.php';
 <script src="js/core.js"></script>
 
 <script src="js/animation.js"></script>
-</body>
-</html>
+
+<?php
+require('footer.php');
+?>

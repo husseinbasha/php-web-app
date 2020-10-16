@@ -5,3 +5,8 @@ $('#article-image').on('change', function () {
     var file = path.replace(/^.*\\/, "");
     $(this).next('.custom-file-label').html(file);
 })
+
+//call texteditor function for article text area
+$(function() {
+    $('textarea#froala-editor').froalaEditor()
+  });

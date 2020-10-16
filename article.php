@@ -10,22 +10,10 @@ $result = getArticle($mysqli , $_GET['id']);
 }
 while($row = $result->fetch_assoc()){
 $author = $row['author'];
-$author_id = $row['uid'];
+$author_id = $row['uid'];}
 
 ?>
-<style>
-    .footer{
-        background: #121212;
-    }
-    .title{
-      font-family: 'Oswald' , 'sans-serif';
-      color:#121212;
-      font-size: 3em;
-      
-    }
-    p{
-      font-family: 'Montserrat' , 'sans-serif';
-    }
+<div></div>
 
 </style>
  <div class="container-fluid rounded p-5">
@@ -59,17 +47,9 @@ $author_id = $row['uid'];
     <!-- Post Content -->
     <p class="lead"><?=$row['content']?>
 
-    <blockquote class="blockquote">
-      <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer class="blockquote-footer">Someone famous in
-        <cite title="Source Title">Source Title</cite>
-      </footer>
-    </blockquote>
+    
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
-
+    
     <hr>
     
 
@@ -185,8 +165,5 @@ $author_id = $row['uid'];
 <!-- /.container -->
 </footer>
 <?php
-}
+require('footer.php');
 ?>
-
-
-
