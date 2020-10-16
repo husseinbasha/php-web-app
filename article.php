@@ -3,34 +3,45 @@ session_start();
 require '/header.php';
 require '/nav.php';
 require 'includes/dbh.inc.php';
+if($_GET['id']){
 $result = getArticle($mysqli , $_GET['id']);
+}else{
+  header("Location: landing.php");
+}
 while($row = $result->fetch_assoc()){
-  
+$author = $row['author'];
+$author_id = $row['uid'];
 
 ?>
 <style>
-    body{
-        background: #121212;
-        
-    }
     .footer{
-        background: #fafafa;
+        background: #121212;
     }
+    .title{
+      font-family: 'Oswald' , 'sans-serif';
+      color:#121212;
+      font-size: 3em;
+      
+    }
+    p{
+      font-family: 'Montserrat' , 'sans-serif';
+    }
+
 </style>
- <div class="container rounded"style ="background:#f3f3f3">
+ <div class="container-fluid rounded p-5">
 
 <div class="row">
 
   <!-- Post Content Column -->
-  <div class="col-lg-8">
-
-    <!-- Title -->
-    <h1 class="mt-4 " style="font-family:Roboto; text-align:left; font-weight:700; color:black; letter-spacing:normal"><?=$row['title']?></h1>
-
+  <div class="col-lg-8 bg-light rounded">
+<!-- Title -->
+    <h2 class="mt-4 title " ><?=$row['title']?></h2>
+    
+    
     <!-- Author -->
     <p class="lead">
       by
-      <a href="userProfile?<?=$row['uid']?>"><?=$row['author']?></a>
+      <a href="userProfile?id=<?=$row['uid']?>"><?=$row['author']?></a>
     </p>
 
     <hr>
@@ -97,53 +108,22 @@ while($row = $result->fetch_assoc()){
               </div>
               <?php
                }?>
-
-    <!-- Comment with nested comments -->
-    <div class="media mb-4">
-      <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-      <div class="media-body">
-        <h5 class="mt-0">Commenter Name</h5>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-        <div class="media mt-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-          <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-          </div>
-        </div>
-
-        <div class="media mt-4">
-          <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-          <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
+</div>
 
   <!-- Sidebar Widgets Column -->
   <!--TODO
     1.show profile of author
     2.add profile picture
   -->
+  <?php if($_SESSION['ID'] == $author_id){
+    echo 'writer';
+  }?>
   <div class="col-md-4">
     <div class="card">
-      <a href="profile.php?profile=">profile</a>
-    </div>
-    <!-- Search Widget -->
-    <div class="card my-4">
-      <h5 class="card-header">Search</h5>
       <div class="card-body">
-        <div class="input-group">
-          <input type="text" class="form-control non-round" placeholder="Search for...">
-          <span class="input-group-append">
-            <button class="btn btn-secondary" type="button">Go!</button>
-          </span>
+        <div class="card-header">
+         <h2> profile</h2>
+
         </div>
       </div>
     </div>
@@ -184,14 +164,14 @@ while($row = $result->fetch_assoc()){
     </div>
 
     <!-- Side Widget -->
-    <div class="card my-4">
+    <!-- <div class="card my-4">
       <h5 class="card-header">Side Widget</h5>
       <div class="card-body">
         You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
       </div>
     </div>
-
-  </div>
+              -->
+  </div> 
 
 </div>
 <!-- /.row -->
@@ -202,7 +182,7 @@ while($row = $result->fetch_assoc()){
 <!-- Footer -->
 <footer class="py-5 footer">
 <div class="container">
-  <p class="m-0 text-center text-white">Copyright 2020; &copy; <span style="font-family: lobster , cursive;">FEEDIT </span> </p>
+  <p class="m-0 text-center text-white">Copyright 2020 &copy; <span style="font-family: lobster , cursive;">FEEDIT </span> </p>
 </div>
 <!-- /.container -->
 </footer>

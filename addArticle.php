@@ -1,9 +1,14 @@
 <?php 
 session_start();
+if(isset($_SESSION['ID'])){
+    $id = $_SESSION['ID'];
+}else{
+    header('Location: landing.php');
+}
+
 require 'header.php';
 require 'nav.php';
 require ('includes/dbh.inc.php');
-
 
 
 
@@ -15,7 +20,7 @@ require ('includes/dbh.inc.php');
   <div class="article-form">
       <br>
       <h1 class="mb-3 article-forest-text text-center"><i class="fas fa-newspaper"></i></h1> 
-      <form action="" method="POST" enctype="multipart/form-data">
+      <form action="includes/addarticle.inc.php" method="POST" enctype="multipart/form-data">
         <h1 class="h3 mb-4 font-weight-normal article-forest-text text-center">Create a New Article</h1>
       <div class="form-group">
           <label for="topic">Article Title:</label>
@@ -28,7 +33,7 @@ require ('includes/dbh.inc.php');
           </div>
           <div class="custom-file">
               <input type="file" id="article-image" name="image" accept="image/*">
-              <label class="custom-file-label" for="image">Choose image</label>
+              <label class="custom-file-label" for="atricle-image">Choose image</label>
           </div>
       </div>
       <!-- <div class="form-group">

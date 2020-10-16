@@ -3,9 +3,9 @@ session_start();
 if(isset($_SESSION['ID'])){
     $id = $_SESSION['ID'];
 
-if(!empty($_POST['submit'])){
+if(isset($_POST['submit'])){
     $title=$_POST['title'];
-    $image=$_POST['image'];
+   
     $content=$_POST['article'];
     $author=$_SESSION['USERNAME'];
    
