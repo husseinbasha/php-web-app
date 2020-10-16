@@ -32,7 +32,7 @@
 
 				echo '<li class="nav-item ml-3">
 					
-						<a class="nav-link   " href="wonerProfile.php"><i class="fas fa-user mr-2  "></i>' . $_COOKIE['uname'] . ' </a>	
+						<a class="nav-link   " href="wonerProfile.php"><i class="fas fa-user mr-2  "></i>' . $_SESSION['USERNAME'] . ' </a>	
 						
 						</li>
 						';
