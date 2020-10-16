@@ -8,12 +8,13 @@
 <footer class="container-fluid text-center">
     <style>
         footer {
-  color: #DEDEDE;
-  background-color: #120D03;
-  padding:40px 200px;
-  margin-top: 10px;
-  font-size: 20px;
-  width:100%
+  color: #DEDEDE !important;
+  background-color: #120D03 !important;
+  padding:2em 1em !important;
+  font-size: 25px !important;
+  font-weight:italic !important;
+ 
+
 
 }
 footer a {
@@ -28,7 +29,7 @@ footer a:hover {
 
 
     </style>
-    <div class="container" >
+    <div>
         <a class="navbar-brand">
             <i class="fas fa-brain"></i> FEEDIT
         </a>

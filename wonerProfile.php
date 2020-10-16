@@ -17,7 +17,6 @@ while($row=$res->fetch_assoc()){
 
 
 <head>
-<meta charset="UTF-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 <link rel="stylesheet" href="css/profileView.css">
 </head>
@@ -42,6 +41,7 @@ while($row=$res->fetch_assoc()){
         <a href="addArticle.php" class="btn mt-2 btn-bordered" >write an article</a>
       </div>
     </div>
+</div>
 </div>
 <?php
 }
