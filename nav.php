@@ -50,7 +50,7 @@
 		if (!isset($_SESSION['ID'])) {
 			echo '<ul><li class="nav-item">
 					
-						<a class="nav-link btn-sm btn-success ml-2 rounded" href="includes/signUp.inc.php">  Signup </a>	
+						<a class="nav-link btn-sm btn-success ml-2 rounded sinup_btn" href="includes/signUp.inc.php">  Signup </a>	
 						
 						</li></ul>';
 		} else {
