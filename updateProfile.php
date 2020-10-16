@@ -181,5 +181,6 @@ function updateProfileImage($mysqli , $picture ,$id ){
    }  
 }
 ?>
-</body>
-</html>
+<?php
+require('footer.php');
+?>

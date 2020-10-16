@@ -74,4 +74,6 @@ function updateProfileImage($mysqli , $picture ,$id ){
  }
 }
 ?>
-    
+    <?php
+require('footer.php');
+?>
