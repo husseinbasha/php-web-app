@@ -7,7 +7,8 @@ if (isset($_POST['login'])) {
     //can be username or email both of them work
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
-
+    $checked = isset($_POST['checkbox']);
+    
     if (empty($username) || empty($password)) {
         header("Location: ../login.php?error=emptyfields&username=$username");
         exit();
@@ -36,10 +37,11 @@ if (isset($_POST['login'])) {
                     session_start();
                     $_SESSION["ID"] = $row['uid'];
                     $_SESSION["USERNAME"] = $row['username'];
+                    if($checked){
                     setcookie("uname", $row['username'] , time()**80*80*80 , "/" , "" , 0);
                     setcookie("id", $row['uid'] , time()*80*80*80, "/" , "" , 0);
-                    
-                    header("Location: ../index.php?login=success&username=".$_COOKIE['uname']);
+                    }
+                    header("Location: ../landing.php?login=success&username=".$_COOKIE['uname']);
                     exit();
                 } else {
                     header("Location: ../login.php?error=password-or-username-incorrects&username=$username");
@@ -52,6 +54,6 @@ if (isset($_POST['login'])) {
         }
     }
 } else {
-    header("Location: ../index.php");
+    header("Location: ../landing.php");
     exit();
 }

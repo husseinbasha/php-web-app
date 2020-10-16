@@ -25,7 +25,7 @@ require 'nav.php';
 				</div>
 				<div class="wthree-text ">
 						<label class="anim">
-							<input id='btn' type="checkbox" class="checkbox" required="">
+							<input id='btn' type="checkbox" name="checkbox" class="checkbox" >
 
 							<span></span>
 							remember me

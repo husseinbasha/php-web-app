@@ -70,32 +70,33 @@ while($row = $result->fetch_assoc()){
 
       </h5>
       <div class="card-body">
-        <form>
+        <form action="addComment.inc.php" method = "post" >
           <div class="form-group">
-            <textarea class="form-control" rows="3"></textarea>
+            <textarea name="content" class="form-control" rows="3"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" name="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
     </div>
-
-    <!-- Single Comment -->
-    <div class="media mb-4">
-      <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-      <div class="media-body">
-        <h5 class="mt-0">Commenter Name</h5>
-        
-        <?php
+    <?php
         /*****this get the comment using function in included/dhb.inc.php */
-                require 'includes/dbh.inc.php';
                 $res = getCommentes($mysqli , 1);
                 while($row = $res->fetch_assoc()){
-                    echo $row['content'];
-                }
+                    
+                
                 
 
-            ?>      </div>
-    </div>
+            ?> 
+              <!-- Single Comment -->
+              <div class="media mb-4">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                <div class="media-body">
+                  <h5 class="mt-0">commenter</h5>
+                 <?=$row['content']?>
+                      </div>
+              </div>
+              <?php
+               }?>
 
     <!-- Comment with nested comments -->
     <div class="media mb-4">

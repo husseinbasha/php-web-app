@@ -204,16 +204,19 @@ function deleteUser($mysqli, $uid)
 //@DESC ADD COMMMENT
 //@COLUMNS  comment_id , article_id , uid , timestamp [can-be-null]
 //@DESC THE UID AND ARTICLE CAN BE BROUGHT THROUGH COOKIES 
-function addComment($mysqli, $uid, $article_id, $content, $timestamp)
+function addComment($mysqli, $uid, $article_id, $content)
 {
 
-    $select = "insert into(`uid`, `comment_id`, `article_id`, `content`, `timestamp`) comments ($uid , $article_id , $content , $timestamp )";
+    $select = "INSERT INTO comments (`uid`,  `article_id`, `content`, ) VALUES ($uid , $article_id , $content )";
 
     if ($mysqli->connect_error) {
         die("Connection failed: " . $mysqli->connect_error);
-    } else {
-        return  $mysqli->query($select) === TRUE ? true : false;
-    }
+    } 
+    if( $mysqli->query($select) === TRUE){
+        echo "success";
+     }else{
+        echo "<br>".$mysqli->error;
+     }
 }
 //@DESC GET COMMENTES
 //@COLUMNS  comment_id , article_id , uid , timestamp [can-be-null]

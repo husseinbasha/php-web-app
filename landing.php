@@ -1,6 +1,10 @@
 <?php
+  session_start();
+
 if(!isset($_SESSION['ID'])){
-session_start();
+  header('Location: login.php');
+}else{
+ $id = $_SESSION['ID'];
 }
 require 'header.php';
 require 'nav.php';
@@ -81,7 +85,12 @@ h1
               <?php if(!$_SESSION['ID']){
                 echo '<a href="signUp.php" class="btn btn-primary">Signup</a>
                      <a href="login.php" class="btn btn-light">Login</a>';
-              }?>
+              }else{
+              ?>
+                <a href="addArticle.php?id=<?=$id?>" class="btn btn-primary">Create Article</a>
+              <?php
+              }
+              ?>
             </div>
             
           </div>

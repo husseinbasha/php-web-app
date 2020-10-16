@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require 'header.php';
 require 'nav.php';
 require ('includes/dbh.inc.php');
