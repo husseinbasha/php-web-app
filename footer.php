@@ -12,8 +12,9 @@
   background-color: #120D03;
   padding-top: 10px;
   padding-bottom: 10px;
-  margin-top: 160px;
+  margin-top: 20px;
   font-size: 20px;
+  width:100%
 
 }
 footer a {
