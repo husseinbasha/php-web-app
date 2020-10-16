@@ -36,7 +36,7 @@ if (isset($_POST['update'])) {
         // 3) Result
 		if($mysqli->affected_rows > 0)
 		{
-                header("Location: wonerProfile.php?infoUpdated=success");
+                header("Location: updateProfile.php?infoUpdated=success");
                 exit();
 		}
         else
@@ -119,7 +119,7 @@ if($res->num_rows > 0){
                                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password" name="password2" required>
                                       </div>
                                       <div class="form-group">
-                                        <label for="exampleInputFile" class="lbl">File input</label>
+                                        <label for="exampleInputFile" class="lbl">Upload Image</label>
                                         <input type="file" id="exampleInputFile" name="picture">
                                       </div>
                                       <button type="submit" class="btn btn-secondary subBtn" name="update">Update</button>
@@ -144,7 +144,7 @@ if($res->num_rows > 0){
 
 
 function updateProfileImage($mysqli , $picture ,$id ){
-    
+    if(isset($_FILES['picture']) ){
     $filename = $_FILES[$picture]['name'];
     $filetmp = $_FILES[$picture]['tmp_name'];
     
@@ -174,6 +174,7 @@ function updateProfileImage($mysqli , $picture ,$id ){
             echo $mysqli->error;
         }
    }  
+}
 }
 ?>
 <?php

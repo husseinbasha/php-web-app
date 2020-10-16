@@ -996,3 +996,15 @@ body {
 .landing{
   background-color: #71aece;
 }
+.sinup_btn{
+  background-color: #4a6c90;
+  border-color: #4a6c90;
+}
+.sinup_btn:hover{
+  background-color: #015249;
+  border-color:#015249;
+}
+input[type="submit"]:hover{
+  background-color: #015249;
+  border-color:#015249;
+}

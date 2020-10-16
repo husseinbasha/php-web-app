@@ -12,7 +12,7 @@ require 'nav.php';
 <style>
 .landing {
   position: relative;
-
+  
   height: 100vh;
 }   
 .landing-inner {

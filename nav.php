@@ -16,15 +16,7 @@
 
 
 			
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Topics</a>
-				<div class="dropdown-menu" aria-labelledby="dropdownId">
-					<a class="dropdown-item" href="#">Computer Science</a>
-					<a class="dropdown-item" href="#">Big data</a>
-					<a class="dropdown-item" href="#">Research papers</a>
-					<a class="dropdown-item" href="#">Spacecrafts</a>
-				</div>
-			</li>
+			
 			<!--TODO profile for user route-->
 			<?php
 

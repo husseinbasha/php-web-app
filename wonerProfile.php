@@ -5,6 +5,7 @@ require 'nav.php';
 require 'includes/dbh.inc.php';
 $id=$_SESSION['ID'];
 $res=getUserWithID($mysqli, $id);
+
 while($row=$res->fetch_assoc()){
     if($row['pic']==NULL){
         $src="https://api.adorable.io/avatars/285/abott@adorable.png";
