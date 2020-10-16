@@ -17,7 +17,6 @@ while($row=$res->fetch_assoc()){
 
 
 <head>
-<meta charset="UTF-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 <link rel="stylesheet" href="css/profileView.css">
 </head>
@@ -37,11 +36,12 @@ while($row=$res->fetch_assoc()){
       </div>
   
       <div class="buttons">
-        <a href="allArticles.php?viewid=<?=$row['uid']?>" class="btn mr-2 btn-primary">Articles</a>
+        <a href="viewarticle.php?id=<?=$row['uid']?>" class="btn mr-2 btn-primary">Articles</a>
         <a href="updateProfile.php" class="btn btn-bordered" >Update info</a>
         <a href="addArticle.php" class="btn mt-2 btn-bordered" >write an article</a>
       </div>
     </div>
+</div>
 </div>
 <?php
 }

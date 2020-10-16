@@ -10,7 +10,7 @@ $result = getArticle($mysqli , $_GET['id']);
 }
 while($row = $result->fetch_assoc()){
 $author = $row['author'];
-$author_id = $row['uid'];}
+$author_id = $row['uid'];
 
 ?>
 <div></div>
@@ -35,12 +35,12 @@ $author_id = $row['uid'];}
     <hr>
 
     <!-- Date/Time -->
-    <p><?=$row['date_published']?></p>
+    <p><?=time_elapsed_string( $row['date_published'])?></p>
 
     <hr>
 
     <!-- Preview Image -->
-    <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+    <img class="img-fluid rounded" src="showcase.jpg" alt="">
 
     <hr>
 
@@ -55,39 +55,26 @@ $author_id = $row['uid'];}
 
 
     <!-- Comments Form -->
-    <div class="card my-4">
-      <h5 class="card-header">
-        Write a comment....
-
-      </h5>
-      <div class="card-body">
-        <form action="includes/addComment.inc.php" method = "post" >
-          <div class="form-group">
-            <textarea name="content" class="form-control" rows="3"></textarea>
-          </div>
-          <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-    </div>
-    <?php
-        /*****this get the comment using function in included/dhb.inc.php */
-                $res = getCommentes($mysqli , 1);
-                while($row = $res->fetch_assoc()){
+   
+   
+    
+        <!-- /*****this get the comment using function in included/dhb.inc.php */
+            //     $res = getCommentes($mysqli , 1);
+            //     while($row = $res->fetch_assoc()){ -->
                     
                 
                 
 
-            ?> 
+            
               <!-- Single Comment -->
-              <div class="media mb-4">
+              <!-- <div class="media mb-4">
                 <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
                 <div class="media-body">
                   <h5 class="mt-0">commenter</h5>
                  <?=$row['content']?>
                       </div>
-              </div>
-              <?php
-               }?>
+              </div> -->
+              
 </div>
 
   <!-- Sidebar Widgets Column -->
@@ -97,14 +84,7 @@ $author_id = $row['uid'];}
   -->
   
   <div class="col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <div class="card-header">
-         <h2> profile</h2>
-
-        </div>
-      </div>
-    </div>
+  
 
     <!-- Categories Widget -->
     <div class="card my-4">
@@ -158,12 +138,39 @@ $author_id = $row['uid'];}
 <!-- /.container -->
 
 <!-- Footer -->
-<footer class="py-5 footer">
-<div class="container">
-  <p class="m-0 text-center text-white">Copyright 2020 &copy; <span style="font-family: lobster , cursive;">FEEDIT </span> </p>
-</div>
+
 <!-- /.container -->
 </footer>
 <?php
+}
+function time_elapsed_string($datetime, $full = false)
+{
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
 require('footer.php');
 ?>
