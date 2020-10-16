@@ -1,7 +1,7 @@
 <?php
 session_start();
-require '/header.php';
-require '/nav.php';
+require 'header.php';
+require 'nav.php';
 require 'includes/dbh.inc.php';
 if($_GET['id']){
 $result = getArticle($mysqli , $_GET['id']);
