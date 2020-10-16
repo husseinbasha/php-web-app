@@ -10,7 +10,7 @@ $result = getArticle($mysqli , $_GET['id']);
 }
 while($row = $result->fetch_assoc()){
 $author = $row['author'];
-$author_id = $row['uid'];}
+$author_id = $row['uid'];
 
 ?>
 <div></div>
@@ -69,25 +69,25 @@ $author_id = $row['uid'];}
         </form>
       </div>
     </div>
-    <?php
-        /*****this get the comment using function in included/dhb.inc.php */
-                $res = getCommentes($mysqli , 1);
-                while($row = $res->fetch_assoc()){
+   
+    
+        <!-- /*****this get the comment using function in included/dhb.inc.php */
+            //     $res = getCommentes($mysqli , 1);
+            //     while($row = $res->fetch_assoc()){ -->
                     
                 
                 
 
-            ?> 
+            
               <!-- Single Comment -->
-              <div class="media mb-4">
+              <!-- <div class="media mb-4">
                 <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
                 <div class="media-body">
                   <h5 class="mt-0">commenter</h5>
                  <?=$row['content']?>
                       </div>
-              </div>
-              <?php
-               }?>
+              </div> -->
+              
 </div>
 
   <!-- Sidebar Widgets Column -->
@@ -158,12 +158,10 @@ $author_id = $row['uid'];}
 <!-- /.container -->
 
 <!-- Footer -->
-<footer class="py-5 footer">
-<div class="container">
-  <p class="m-0 text-center text-white">Copyright 2020 &copy; <span style="font-family: lobster , cursive;">FEEDIT </span> </p>
-</div>
+
 <!-- /.container -->
 </footer>
 <?php
+}
 require('footer.php');
 ?>

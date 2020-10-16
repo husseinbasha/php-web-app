@@ -37,9 +37,8 @@ while($row=$res->fetch_assoc()){
       </div>
   
       <div class="buttons">
-        <a href="allArticles.php?viewid=<?=$row['uid']?>" class="btn mr-2 btn-primary">Articles</a>
+        <a href="viewarticle.php?id=<?=$row['uid']?>" class="btn mr-2 btn-primary">Articles</a>
         <a href="updateProfile.php" class="btn btn-bordered" >Update info</a>
-        <a href="addArticle.php" class="btn mt-2 btn-bordered" >write an article</a>
         <a href="addArticle.php" class="btn mt-2 btn-bordered" >write an article</a>
       </div>
     </div>
