@@ -343,9 +343,9 @@ input.text.w3lpass {
 input[type="submit"] {
   font-size: .9em;
   color: #fff;
-  background: #76b852;
+  background: #4a6c90;
   outline: none;
-  border: 1px solid #76b852;
+  border: 1px solid #4a6c90;
   cursor: pointer;
   padding: 0.9em;
   -webkit-appearance: none;
@@ -395,7 +395,7 @@ input[type="submit"]:hover {
 }
 
 input.checkbox {
-  background: #8DC26F;
+  background: #4a6c90;
   cursor: pointer;
   width: 1.2em;
   height: 1.2em;
