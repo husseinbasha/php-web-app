@@ -15,9 +15,7 @@
 			</li>
 
 
-			<li class="nav-item">
-				<a class="nav-link" href="article.php?id=all">Featured </a>
-			</li>
+			
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Topics</a>
 				<div class="dropdown-menu" aria-labelledby="dropdownId">
@@ -31,11 +29,13 @@
 			<?php
 
 			if (isset($_SESSION['ID'])) {
+
 				echo '<li class="nav-item ml-3">
 					
 						<a class="nav-link   " href="wonerProfile.php"><i class="fas fa-user mr-2  "></i>' . $_COOKIE['uname'] . ' </a>	
 						
-					</li>';
+						</li>
+						';
 			}
 
 			?>
@@ -62,7 +62,8 @@
 						
 						</li></ul>';
 		} else {
-			echo '<ul><li class="nav-item">
+			echo 		'<ul>
+						<li class="nav-item">
 					
 						<a class="nav-link btn-sm btn-dark ml-2 rounded" href="includes/logout.inc.php"> Logout </a>	
 						

@@ -8,7 +8,6 @@ if(isset($_SESSION['ID'])){
 
 require 'header.php';
 require 'nav.php';
-require ('includes/dbh.inc.php');
 
 
 

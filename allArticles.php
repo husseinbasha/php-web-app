@@ -47,13 +47,13 @@ require 'nav.php';
 
         </div>
         <div class="col-m-6 ">
-            <form class="form mt-1">
+            <form class="form mt-1" action="" method="post"> 
             
             <div class="input-group ">
           
-            <input class="form-control bg-light " type="text" placeholder="Search">
+            <input class="form-control bg-light " name="key" type="text" placeholder="Search">
             <div class="input-group-btn bg-dark">
-            <button class="btn btn-dark  " type="submit"><i class="fa fa-search" aria-hidden="true"></i></i>
+            <button class="btn btn-dark  "  name = "submit" type="submit"><i class="fa fa-search" aria-hidden="true"></i></i>
             </button>
             </div>
             </div>
@@ -63,25 +63,23 @@ require 'nav.php';
         <div class="row mt-3 text-white">
           <div class="col-sm-">
 
-        <div class="dropdown open">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-                Dropdown
-              </button>
-          <div class="dropdown-menu" aria-labelledby="triggerId">
-            <form action="includes/articles.inc.php" method="get">
-            <button class="dropdown-item" type='submit' href="?sort=oldest">oldest</button>
-            <button class="dropdown-item" href="#">Disabled action</button>
-            </form>
-          </div>
-        </div>
+        
           </div>
           
         </div>
       
        
       </div>
-      <?php include_once 'includes/articles.inc.php' ?>
+      <?php 
+      if(isset($_POST['submit'])){
+        include_once 'includes/articles.inc.php' ;
+
+      }else{
+        include_once 'includes/articles.inc.php' ;
+
+      }
+      
+      ?>
     </div>
   <div class="col">
    <div class="card title">

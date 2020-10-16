@@ -76,7 +76,7 @@ function getSignedupUser($mysqli, $username, $email)
 function getUserWithID($mysqli, $id)
 {
 
-    $select = "select * from users where uid =$id";
+    $select = "select * from users where uid = $id";
 
     if ($mysqli->connect_error) {
         die("Connection failed: " . $mysqli->connect_error);
@@ -120,6 +120,50 @@ function getArticlePage($mysqli, $off , $per_page)
 {
 
     $select = "SELECT * FROM article LIMIT $off , $per_page";
+
+    if ($mysqli->connect_error) {
+        die("Connection failed: " . $mysqli->connect_error);
+    } else {
+        $res = $mysqli->query($select);
+        if ($res->num_rows > 0) {
+            return $res;
+        }
+    }
+}
+function getArticleSearch($mysqli, $key)
+{
+
+    $select = "SELECT * FROM article where  title or content like '%$key%' ";
+
+    if ($mysqli->connect_error) {
+        die("Connection failed: " . $mysqli->connect_error);
+    } else {
+        $res = $mysqli->query($select);
+        if ($res->num_rows > 0) {
+            return $res;
+        }else {
+            return $res;
+        }
+    }
+}
+function getArticlePageSortDesc($mysqli, $off , $per_page)
+{
+
+    $select = "SELECT * FROM article ORDER BY date_published DESC limit $off , $per_page ";
+
+    if ($mysqli->connect_error) {
+        die("Connection failed: " . $mysqli->connect_error);
+    } else {
+        $res = $mysqli->query($select);
+        if ($res->num_rows > 0) {
+            return $res;
+        }
+    }
+}
+function getArticlePageSortAcen($mysqli, $off , $per_page)
+{
+
+    $select = "SELECT * FROM article order by asc LIMIT $off , $per_page ";
 
     if ($mysqli->connect_error) {
         die("Connection failed: " . $mysqli->connect_error);
