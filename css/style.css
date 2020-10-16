@@ -917,7 +917,7 @@ input.checkbox:checked:after {
 }
 
 body {
-  background: #76b852;
+  background: #bbbec1;;
 }
 
 .g-bg {
@@ -978,7 +978,7 @@ body {
 }
 
 .article-btn-light {
-  background-color: #015249;
+  background-color:#015249;
   color: #fff;
   border: none;
 }
@@ -988,4 +988,11 @@ body {
   max-width: 600px;
   padding: 15px;
   margin: 0 auto;
+}
+
+.shadow{
+  box-shadow:0px 2px 10px 5px rgb(128 123 123 / 75%) !important;
+}
+.landing{
+  background-color: #71aece;
 }

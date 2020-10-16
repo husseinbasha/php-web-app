@@ -23,7 +23,7 @@ while($row=$res->fetch_assoc()){
 
 <div class="container">
   <div class="box">
-    <div class="card-header">
+    <div class="card-header shadow">
       <div class="img">
         <div class="inner-img">
           <img src="<?php echo $src?>" alt="" class="img-profile">
