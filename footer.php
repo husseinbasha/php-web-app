@@ -9,7 +9,7 @@
     <style>
         footer {
   color: #DEDEDE !important;
-  background-color: #120D03 !important;
+  background-color: #121212 !important;
   padding:2em 1em !important;
   font-size: 25px !important;
   font-weight:italic !important;
