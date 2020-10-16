@@ -41,7 +41,7 @@ if (isset($_POST['update'])) {
         // 3) Result
 		if($mysqli->affected_rows > 0)
 		{
-                header("Location: updateProfile.php?infoUpdated=success");
+                header("Location: wonerProfile.php?infoUpdated=success");
                 exit();
 		}
         else
@@ -77,7 +77,7 @@ if($res->num_rows > 0){
     <div class="container">
          <div class=" row justify-content-center p-2  rounded mt-4 " >
          <div class="col-md-4 mr-2">      
-                <div class="portlet light profile-sidebar-portlet bordered">
+                <div class="portlet light profile-sidebar-portlet bordered shadow">
                     <div class="profile-userpic">
                         <img src=<?=$src?> class="img-responsive" alt="" width = "250px" height="250px">> </div>
                     <div class="profile-usertitle">
@@ -89,7 +89,7 @@ if($res->num_rows > 0){
         
         </div>
          <div class="col-md-6"> 
-                <div class="portlet light bordered">
+                <div class="portlet light bordered shadow">
                     <div class="portlet-title tabbable-line">
                         <div class="caption caption-md">
                             <i class="icon-globe theme-font hide"></i>

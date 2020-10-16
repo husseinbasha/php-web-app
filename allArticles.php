@@ -40,7 +40,7 @@ require 'nav.php';
 <div class="container-fluid">
   <div class="row p-4">
     <div class="col-lg-9 ">
-      <div class="container-fluid p-4 rounded mb-2" style="background: #121212;">
+      <div class="container-fluid p-4 rounded mb-2 shadow" style="background: #393d40;">
       <div class="row justify-content-between">
         <div class="col-m-6">
         <h1>Top posts</h1>
@@ -84,7 +84,7 @@ require 'nav.php';
       ?>
     </div>
   <div class="col">
-   <div class="card title">
+   <div class="card title shadow">
         <div class="card-header">
           <h2>Sort by <i class="ml-3 fa fa-sort text-dark" aria-hidden="true"></i></h2>
         </div>
@@ -96,7 +96,7 @@ require 'nav.php';
           </form>
         </div>
       </div>
-      <div class="card my-4 title">
+      <div class="card my-4 title shadow">
         <h5 class="card-header">Categories</h5>
         <div class="card-body">
           <div class="row">
