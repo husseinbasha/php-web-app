@@ -59,11 +59,7 @@
 		</div>
 
 		<!-- copyright -->
-		<div class="colorlibcopy-agile">
-			<p> contact us on github <a href="https://github.com/husseinbasha"><br>Hussein Basha</a></p>
-			<p>  <a href="https://github.com/Firas-Al-Azizy">Firas Alazizy</a></p>
-			<p>  <a href="https://github.com/husseinbasha">Heba Fayad</a></p>
-		</div>
+		
 
 
 		<!-- BACKGTROUND ANIMATION -->

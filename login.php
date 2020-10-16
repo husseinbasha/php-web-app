@@ -39,11 +39,7 @@ require 'nav.php';
 		</div>
 	</div>
 	<!-- copyright -->
-	<div class="colorlibcopy-agile">
-			<p> contact us on github <a href="https://github.com/husseinbasha"><br>Hussein Basha</a></p>
-			<p>  <a href="https://github.com/Firas-Al-Azizy">Firas Alazizy</a></p>
-			<p>  <a href="https://github.com/husseinbasha">Heba Fayad</a></p>
-		</div>
+	
 	<!-- animations -->
 	<ul class="colorlib-bubbles">
 		<li></li>
@@ -61,7 +57,9 @@ require 'nav.php';
 <script src="js/core.js"></script>
 
 <script src="js/animation.js"></script>
-
+<?php
+require 'footer.php';
+?>
 </body>
 
 </html>
