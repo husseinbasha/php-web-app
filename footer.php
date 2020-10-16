@@ -10,8 +10,7 @@
         footer {
   color: #DEDEDE;
   background-color: #120D03;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding:40px 200px;
   margin-top: 10px;
   font-size: 20px;
   width:100%
