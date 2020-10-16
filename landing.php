@@ -98,4 +98,6 @@ h1
         </div>
  
  </section>
-
+ <?php
+require('footer.php');
+?>

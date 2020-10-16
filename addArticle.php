@@ -45,7 +45,7 @@ require 'nav.php';
       </div> -->
       <div class="form-group">
           <label for="article">Article:</label>
-          <textarea class="form-control" rows="8" type="text" name="article" placeholder="article" required ></textarea>
+          <textarea id="froala-editor" class="form-control" rows="8" type="text" name="article" placeholder="article" required ></textarea>
       </div>
       <div class="form-group">
           <button class="btn btn-lg article-btn-light btn-block" name="submit">Submit</button>
@@ -54,3 +54,6 @@ require 'nav.php';
   </div>
   
 </div><!--container -->
+<?php
+require('footer.php');
+?>
