@@ -71,7 +71,9 @@ require 'nav.php';
        
       </div>
       <?php 
+    
       if(isset($_POST['submit'])){
+
         include_once 'includes/articles.inc.php' ;
 
       }else{

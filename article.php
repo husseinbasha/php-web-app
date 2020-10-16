@@ -81,7 +81,7 @@ $author_id = $row['uid'];
 
       </h5>
       <div class="card-body">
-        <form action="addComment.inc.php" method = "post" >
+        <form action="includes/addComment.inc.php" method = "post" >
           <div class="form-group">
             <textarea name="content" class="form-control" rows="3"></textarea>
           </div>
@@ -115,9 +115,7 @@ $author_id = $row['uid'];
     1.show profile of author
     2.add profile picture
   -->
-  <?php if($_SESSION['ID'] == $author_id){
-    echo 'writer';
-  }?>
+  
   <div class="col-md-4">
     <div class="card">
       <div class="card-body">

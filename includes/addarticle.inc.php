@@ -1,7 +1,8 @@
 <?php
-require'dbh.inc.php';
 session_start();
-if(isset($_SESSION['ID'])){
+
+require 'dbh.inc.php';
+if(isset($_SESSION['ID']) || isset($_COOKIE['uid'])){
 
 if(isset($_POST['submit'])){
     $title=$_POST['title'];
@@ -14,9 +15,13 @@ if(isset($_POST['submit'])){
 if(empty($title)|| empty($content)){
     echo '<div class="alert alert-danger">All fileds are requierd!</div>';
 }else{
-    addArticle($mysqli, $userid, $author, $title, $content);
-    $result = getArticle($mysqli , $id);
-    header('Location:../allArticles.php');
+    $id= addArticle($mysqli, $userid, $author, $title, $content);
+    if(is_int($id)){
+    header('Location: ../article.php?id='.$id);
+    }else{
+
+    }
+
 }
 }
 }else{

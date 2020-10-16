@@ -190,6 +190,20 @@ function getArticles($mysqli)
         }
     }
 }
+function getUserArticles($mysqli)
+{
+
+    $select = "select * from article ";
+
+    if ($mysqli->connect_error) {
+        die("Connection failed: " . $mysqli->connect_error);
+    } else {
+        $res = $mysqli->query($select);
+        if ($res->num_rows > 0) {
+            return $res;
+        }
+    }
+}
 //@DESC ADD Article
 //@COLUMNS  `date_published`, `author`, `title`, `content`, `id`, `uid` 
 //@DESC THE UID CAN BE BROUGHT THROUGH COOKIES 
@@ -201,9 +215,9 @@ function addArticle($mysqli, $uid,  $author, $title, $content)
         echo("Connection failed: " . $mysqli->connect_error);
     }
          if( $mysqli->query($select) === TRUE){
-            echo "success";
+            return $mysqli->insert_id;
          }else{
-            echo "<br>".$mysqli->error;
+            echo $mysqli->error;
          }
         
        

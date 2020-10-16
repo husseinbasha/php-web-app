@@ -23,7 +23,7 @@ require 'nav.php';
         <h1 class="h3 mb-4 font-weight-normal article-forest-text text-center">Create a New Article</h1>
       <div class="form-group">
           <label for="topic">Article Title:</label>
-          <input class="form-control" type="text" name="title" placeholder="article topic" required autofocus>
+          <input value="<?php if(isset($_GET['title'])){ echo $_GET['title']; } ?>"class="form-control" type="text" name="title" placeholder="article topic" required autofocus>
       </div>
       <label for="image">Image:</label>
       <div class="input-group">
@@ -45,7 +45,7 @@ require 'nav.php';
       </div> -->
       <div class="form-group">
           <label for="article">Article:</label>
-          <textarea class="form-control" rows="8" type="text" name="article" placeholder="article" required ></textarea>
+          <textarea value="<?php if(isset($_GET['content'])){ echo $_GET['content']; } ?>" class="form-control" rows="8" type="text" name="article" placeholder="article" required ></textarea>
       </div>
       <div class="form-group">
           <button class="btn btn-lg article-btn-light btn-block" name="submit">Submit</button>

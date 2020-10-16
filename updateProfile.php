@@ -66,7 +66,7 @@ if($res->num_rows > 0){
     if($row['pic']==NULL){
         $src="https://api.adorable.io/avatars/285/abott@adorable.png";
     }else{
-        $src="includes/images/".$row['pic'];
+        $src="images/".$row['pic'];
     }
 
 ?>
@@ -151,8 +151,7 @@ function updateProfileImage($mysqli , $picture ,$id ){
     
     $filename = $_FILES[$picture]['name'];
     $filetmp = $_FILES[$picture]['tmp_name'];
-    echo $filename;
-    echo realpath($filetmp);
+    
 
     $folder = "images/";
     $ext = explode('.', $filename);
