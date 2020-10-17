@@ -37,9 +37,9 @@ if (isset($_POST['login'])) {
                     session_start();
                     $_SESSION["ID"] = $row['uid'];
                     $_SESSION["USERNAME"] = $row['username'];
-                    if($checked){
-                    setcookie("uname", $row['username'] , time()**80*80*80 , "/" , "" , 0);
-                    setcookie("id", $row['uid'] , time()*80*80*80, "/" , "" , 0);
+                    if($checked == 1 || $checked == 'on'){
+                    setcookie("uname", $row['username'] , time()*800*800*800 , "/" , "" , 0);
+                    setcookie("id", $row['uid'] , time()*800*800*800, "/" , "" , 0);
                     }
                     header("Location: ../landing.php?login=success&username=".$_COOKIE['uname']);
                     exit();
@@ -57,3 +57,5 @@ if (isset($_POST['login'])) {
     header("Location: ../landing.php");
     exit();
 }
+
+ 

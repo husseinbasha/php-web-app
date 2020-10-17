@@ -4,7 +4,9 @@
 
 require 'header.php';
 require 'nav.php';
-
+if(isset($_COOKIE['uname']) && isset($_COOKIE['id'])){
+	login();
+}
 ?>
 <div class="main-w3layouts wrapper">
 	<div class="main-agileinfo">
@@ -59,6 +61,12 @@ require 'nav.php';
 <script src="js/animation.js"></script>
 <?php
 require 'footer.php';
+function login(){
+
+	$_SESSION['USERNAME'] = $_COOKIE['uname'];
+	$_SESSION['ID'] = $_COOKIE['id'];
+	header('Location: landing.php');
+}
 ?>
 </body>
 
