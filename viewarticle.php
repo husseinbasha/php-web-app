@@ -48,17 +48,14 @@ require 'nav.php';
         </div>
         
         
-        <div class="row mt-3 text-white">
-          <div class="col-sm-">
-
         
-          </div>
-          
-        </div>
       
        
       </div>
-      </div>
+      </div> 
+     
+
+      
       <?php 
       
     if(isset($_GET['id'])){
@@ -68,22 +65,26 @@ require 'nav.php';
         $result = $mysqli->query("select article.title , article.author ,  article.id , article.content  from article left join users on users.uid = article.uid WHERE users.uid = $id");
         if ($result->num_rows > 0){
             while($row = $result->fetch_assoc()){
-                echo '<a href="#" class=" list-group-item list-group-item-action border-top rounded-top border-bottom-0 flex-column align-items-start">
+                echo '
+                <div class="list-group text-dark">
+
+                <a href="#" class=" list-group-item list-group-item-action border-top rounded-top border-bottom-0 flex-column align-items-start">
                 <div class="d-flex w-100 justify-content-between mb-2">
                 <h3 class="title mb-1 h4">' . $row['title'] . ' by ' . $row['author'] . '</h3>
                 <small>  </small>
                 </div>
                 <p class="mb-1 border-l">' .  substr($row['content'], 0, 300) . '</p>
                 </a>              
-                <div class="container-fluid justify-content-between mb-2">
-                <div class="row">
-                <a class=" btn-lg btn-primary   " href="article.php?id=' . $row['id'] . '">Show</a>
-                <a class="btn-lg btn-warning   " href="addArticle.php?edit=' . $row['id'] . '&content='.$row['content'].'&title='.$row['title'].'">Edit</a>
-                <a class="btn-lg btn-danger    " href="viewarticle.php?delete=' . $row['id'] . '">Delete</a>
+                <div class="item p-4">
+                <a class=" btn btn-secondary" href="article.php?id=' . $row['id'] . '">Show</a>
+                <a class=" btn btn-info" href="addArticle.php?edit=' . $row['id'] . '&content='.$row['content'].'&title='.$row['title'].'">Edit</a>
+                <a class=" btn btn-danger" href="viewarticle.php?delete=' . $row['id'] . '">Delete</a>
                 </div>
                 </div>
+               
                 ';
             }
+
         }else
         {
             
