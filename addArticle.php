@@ -89,15 +89,7 @@ if(isset($_GET['edit'])){
           <label for="topic">Article Title:</label>
           <input value="<?php if(isset($_GET['title'])){ echo $_GET['title']; } ?>" class="form-control bg-light" type="text" name="title" placeholder="article topic" id="topic" required autofocus>
       </div>
-      <label for="image">Image:</label>
-      <div class="input-group">
-   
-          <div class="custom-file">
-             <label class= "custom-file-label" for="image">Choose image</label>
-
-              <input class = "custom-file-input" type="file" id="article-image" name="image" accept="image/*">
-          </div>
-      </div>
+    
       <!-- <div class="form-group">
           <label for="date">Date of publish:</label>
           <input class="form-control" type="text" name="date" placeholder="date" required>
