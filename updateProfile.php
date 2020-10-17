@@ -36,7 +36,7 @@ if (isset($_POST['update'])) {
         // 3) Result
 		if($mysqli->affected_rows > 0)
 		{
-                header("Location: updateProfile.php?infoUpdated=success");
+                header("Location: wonerProfile.php?infoUpdated=success");
                 exit();
 		}
         else
