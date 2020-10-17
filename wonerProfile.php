@@ -50,8 +50,6 @@ function updateProfileImage($mysqli , $picture ,$id ){
     
   $filename = $_FILES[$picture]['name'];
   $filetmp = $_FILES[$picture]['tmp_name'];
-  echo $filename;
-  echo realpath($filetmp);
 
   $folder = "images/";
   $ext = explode('.', $filename);
@@ -60,12 +58,16 @@ function updateProfileImage($mysqli , $picture ,$id ){
  if(in_array($ext[1] , $allowed)){
         
   try{
-      move_uploaded_file($filetmp , $folder.$filename);
+  
+      move_uploaded_file($filetmp , $folder.'profile'.$id.$filename);
+    
 
+      
+    
   }catch(Exception $ex){
       echo $ex;
   }
-  $name= mysqli_real_escape_string($mysqli , $filename);
+  $name= mysqli_real_escape_string($mysqli , 'profile'.$id.$filename);
   $query = "update users set pic = \"$name\" where uid = $id";
       if($mysqli->connect_error){
           die("Connection failed: " . $mysqli->connect_error);
