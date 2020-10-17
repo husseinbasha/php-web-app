@@ -40,7 +40,7 @@ $author_id = $row['uid'];
     <hr>
 
     <!-- Preview Image -->
-    <img class="img-fluid rounded" src="showcase.jpg" alt="">
+    <img class="img-fluid rounded" src= "images/<?=$row['article_pic']?>" alt="">
 
     <hr>
 
