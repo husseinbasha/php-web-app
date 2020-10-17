@@ -1,5 +1,5 @@
-// DISPLAY IMAGE FILENAME in add article page
-$('#article-image').on('change', function () {
+ //DISPLAY IMAGE FILENAME in add article page
+ $('#article-image').on('change', function () {
     var fileName = $(this).val();
     var path = "C:\\fakepath\\" + fileName;
     var file = path.replace(/^.*\\/, "");

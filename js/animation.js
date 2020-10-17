@@ -6,9 +6,10 @@
 			
 //         });
         
-        /*type writer effect
-		var txt= "Sign Up Now\!";
-		var app = document.getElementById('text');
+        
+        var txt= "Sign Up Now\!";
+        
+		var app = document.getElementById('text1');
         
 		var typewriter = new Typewriter(app, {
 			loop: true
@@ -22,7 +23,7 @@
 			.pauseFor(2500).deleteAll()
 			.typeString('Join Us').pauseFor(3000)
             .start();
-            */
+            
             var app = document.getElementById('text2');
         
             var typewriter = new Typewriter(app, {
