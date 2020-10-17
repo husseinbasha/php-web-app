@@ -29,7 +29,7 @@ $author_id = $row['uid'];
     <!-- Author -->
     <p class="lead">
       by
-      <a href="userProfile?id=<?=$row['uid']?>"><?=$row['author']?></a>
+      <a href="#"><?=$row['author']?></a>
     </p>
 
     <hr>
